@@ -98,9 +98,9 @@ def main():
         module.fail_json(msg='Check syntax for <when> parameter', **result)
 
     if module.params['fqdn']:
-        banner = module.params['text'] + "\nServer: " + socket.getfqdn()
+        banner = module.params['text'] + "\nServer: " + socket.getfqdn() + "\n"
     else:
-        banner = module.params['text']
+        banner = module.params['text'] + "\n"
 
     if module.params['state'] == "present":
         f = open(target, "w")
